@@ -10,15 +10,14 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import { Link } from "wouter";
 import { Search, Filter, AlertTriangle, ShieldCheck } from "lucide-react";
-import { IncidentSeverity, IncidentStatus } from "@workspace/api-client-react/src/generated/api.schemas";
-
 export default function IncidentsPage() {
   const [statusFilter, setStatusFilter] = useState<string>("ALL");
   const [severityFilter, setSeverityFilter] = useState<string>("ALL");
 
-  const { data: incidents, isLoading } = useListIncidents({
-    query: { queryKey: getListIncidentsQueryKey() }
-  });
+  const { data: incidents, isLoading } = useListIncidents(
+    undefined,
+    { query: { queryKey: getListIncidentsQueryKey() } }
+  );
 
   const getSeverityBadge = (severity: string) => {
     switch(severity) {
