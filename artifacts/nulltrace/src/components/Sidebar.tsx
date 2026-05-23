@@ -1,15 +1,15 @@
 import { Link, useLocation } from "wouter";
-import { 
-  Activity, 
-  AlertTriangle, 
-  BarChart2, 
-  Cpu, 
-  LayoutDashboard, 
-  MessageSquare, 
+import {
+  AlertTriangle,
+  BarChart2,
+  Cpu,
+  LayoutDashboard,
+  MessageSquare,
   TerminalSquare
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import logo from "/logo.png";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -25,16 +25,17 @@ export function Sidebar() {
 
   return (
     <div className="w-64 border-r border-sidebar-border bg-sidebar h-full flex flex-col">
-      <div className="h-16 flex items-center px-6 border-b border-sidebar-border">
-        <Activity className="h-6 w-6 text-primary neon-text-blue mr-2" />
-        <span className="font-bold text-lg tracking-tight text-sidebar-foreground">NullTrace</span>
+      <div className="h-16 flex items-center px-5 border-b border-sidebar-border">
+        <Link href="/">
+          <img src={logo} alt="NullTrace" className="h-7 w-auto cursor-pointer" />
+        </Link>
       </div>
-      
+
       <div className="flex-1 py-6 px-3 flex flex-col gap-1 overflow-y-auto">
         {navItems.map((item) => {
           const isActive = location.startsWith(item.href);
           const Icon = item.icon;
-          
+
           return (
             <Link key={item.href} href={item.href}>
               <Button
@@ -51,7 +52,7 @@ export function Sidebar() {
           );
         })}
       </div>
-      
+
       <div className="p-4 border-t border-sidebar-border">
         <div className="flex items-center text-xs text-muted-foreground">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-blink mr-2"></span>

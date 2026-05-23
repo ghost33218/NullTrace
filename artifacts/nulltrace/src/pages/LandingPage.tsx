@@ -1,11 +1,11 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Activity, Shield, Terminal, Zap } from "lucide-react";
+import { Shield, Terminal, Zap } from "lucide-react";
+import logo from "/logo.png";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col relative overflow-hidden">
-      {/* Abstract Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[120px] rounded-full mix-blend-screen" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/20 blur-[120px] rounded-full mix-blend-screen" />
@@ -14,8 +14,7 @@ export default function LandingPage() {
 
       <header className="relative z-10 container mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Activity className="h-6 w-6 text-primary neon-text-blue" />
-          <span className="font-bold text-xl tracking-tight">NullTrace</span>
+          <img src={logo} alt="NullTrace" className="h-8 w-auto" />
         </div>
         <nav className="flex items-center gap-6">
           <Link href="/signin">
@@ -30,19 +29,14 @@ export default function LandingPage() {
       </header>
 
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center container mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8 animate-fade-in-up">
-          <span className="w-2 h-2 rounded-full bg-primary animate-blink"></span>
-          <span className="text-sm font-medium">NullTrace AI v2.0 is live</span>
-        </div>
-        
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 max-w-4xl text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/60">
           The AI-Powered War Room for Modern DevOps
         </h1>
-        
+
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl">
           Instantly diagnose root causes, correlate logs with metrics, and resolve incidents with confidence. Like Grafana, Datadog, and an expert SRE fused into one.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <Link href="/dashboard">
             <Button size="lg" className="w-full sm:w-auto h-12 px-8 text-base bg-primary hover:bg-primary/90 text-primary-foreground neon-border-blue">
@@ -51,7 +45,7 @@ export default function LandingPage() {
           </Link>
           <Link href="/signin">
             <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base bg-card hover:bg-card/80 border-border">
-              <Terminal className="mr-2 h-4 w-4" /> View Documentation
+              <Terminal className="mr-2 h-4 w-4" /> Sign In
             </Button>
           </Link>
         </div>
@@ -66,7 +60,7 @@ export default function LandingPage() {
               Our AI analyzes metrics, traces, and logs across your microservices to pinpoint the exact root cause in seconds.
             </p>
           </div>
-          
+
           <div className="p-6 rounded-2xl glass-card relative group hover:neon-border-purple transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary">
               <Shield className="h-6 w-6" />
@@ -76,7 +70,7 @@ export default function LandingPage() {
               Catch regressions before they become incidents. NullTrace learns your baseline and alerts on meaningful deviations.
             </p>
           </div>
-          
+
           <div className="p-6 rounded-2xl glass-card relative group hover:neon-border-blue transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 text-primary">
               <Terminal className="h-6 w-6" />
